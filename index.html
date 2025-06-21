@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHALE REAPER | Solana Financial Assassin Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <style>
+        :root {
+            --primary: #00ff88;
+            --secondary: #9945FF; /* Solana purple */
+            --accent: #ff2d75;
+            --terminal: #0a0a0a;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #000;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .glow {
+            text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+        }
+        .glow-secondary {
+            text-shadow: 0 0 8px rgba(153, 69, 255, 0.5); /* Solana purple glow */
+        }
+        .glow-accent {
+            text-shadow: 0 0 8px rgba(255, 45, 117, 0.5);
+        }
+        .terminal-bg {
+            background-color: var(--terminal);
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .border-gradient {
+            border-image: linear-gradient(45deg, var(--primary), var(--secondary)) 1;
+        }
+        .hud-element {
+            backdrop-filter: blur(4px);
+            background: rgba(10, 10, 10, 0.7);
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid var(--primary);
+            white-space: nowrap;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+        .solana-gradient {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Tactical HUD Overlay -->
+    <div class="fixed inset-0 pointer-events-none z-50">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+        <div class="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+        <div class="absolute top-0 right-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="flex-1 container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-12">
+            <div class="flex items-center">
+                <div class="w-3 h-3 rounded-full bg-primary mr-2 glow"></div>
+                <h1 class="text-2xl font-bold tracking-tighter">
+                    <span class="text-primary">WHALE</span>
+                    <span class="text-white">_REAPER</span>
+                    <span class="text-xs mono ml-2 px-2 py-1 bg-gray-800 rounded-full text-secondary">SOLANA EDITION</span>
+                </h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#network" class="text-gray-400 hover:text-primary transition-colors">NETWORK</a>
+                <a href="#terminal" class="text-gray-400 hover:text-primary transition-colors">TERMINAL</a>
+                <a href="#bounties" class="text-gray-400 hover:text-primary transition-colors">BOUNTIES</a>
+                <a href="#manifesto" class="text-gray-400 hover:text-primary transition-colors">MANIFESTO</a>
+            </nav>
+            <button id="connectWalletBtn" class="px-4 py-2 bg-transparent border border-primary text-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                CONNECT WALLET
+            </button>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                    <!-- Logo added here -->
+                    <img src="Progetto_senza_titolo__1_-removebg-preview.png" alt="WHALE REAPER Logo" class="w-40 mb-6">
+                    <div class="text-sm mono text-primary mb-4 typewriter">INITIALIZING SOLANA ASSASSIN PROTOCOL...</div>
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        <span class="text-white">REAP</span>
+                        <span class="solana-gradient">SOLANA</span>
+                        <span class="text-white">WHALES</span>
+                    </h2>
+                    <p class="text-gray-400 mb-8 max-w-lg">
+                        WHALE REAPER is a tactical GameFi  where elite players track, analyze, and execute precision strikes on early whale positions in the Solana memecoin ecosystem. 
+                        <span class="text-primary">All theatrical. All fake. Pure degen parody.</span>
+                    </p>
+                    <div class="flex space-x-4">
+                        <button id="snipeBtn" class="px-8 py-3 bg-primary text-black font-bold hover:bg-secondary hover:text-white transition-all transform hover:scale-105">
+                            START REAPING
+                        </button>
+<a href="https://x.com/Whale_reaper" target="_blank" rel="noopener noreferrer">
+    <button class="px-8 py-3 border border-gray-700 text-gray-300 hover:border-primary hover:text-primary transition-colors">
+        @whale_reaper X
+    </button>
+</a>
+
+                    </div>
+                    <div class="mt-6 flex items-center text-sm mono text-gray-500">
+                        <span class="flex items-center mr-4">
+                            <span class="w-2 h-2 rounded-full bg-secondary mr-2 glow-secondary"></span>
+                            <span>SOLANA MAINNET</span>
+                        </span>
+                        <span class="flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+                            <span>400ms LATENCY</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="terminal-bg border border-gray-800 rounded-lg overflow-hidden">
+                        <div class="bg-gray-900 px-4 py-2 flex items-center">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-xs mono text-gray-500 ml-4">SOLANA_WHALE_TRACKER</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="mb-4">
+                                <div class="flex justify-between text-xs mono text-gray-500 mb-1">
+                                    <span>TARGET_ID: H9s3...K7a2</span>
+                                    <span>TOKEN: $WIF</span>
+                                </div>
+                                <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 72%"></div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 mb-4">
+                                <div class="hud-element p-3 rounded border border-gray-800">
+                                    <div class="text-xs mono text-gray-500">POSITION SIZE</div>
+                                    <div class="text-lg font-bold text-primary">5,420 SOL</div>
+                                </div>
+                                <div class="hud-element p-3 rounded border border-gray-800">
+                                    <div class="text-xs mono text-gray-500">TOKEN</div>
+                                    <div class="text-lg font-bold text-secondary">$WIF</div>
+                                </div>
+                                <div class="hud-element p-3 rounded border border-gray-800">
+                                    <div class="text-xs mono text-gray-500">BOUNTY</div>
+                                    <div class="text-lg font-bold text-accent glow-accent">42.0 SOL</div>
+                                </div>
+                            </div>
+                            <div class="hud-element p-3 rounded border border-gray-800 mb-3">
+                                <div class="flex justify-between items-center">
+                                    <div class="text-xs mono text-gray-500">LAST TX: <span class="text-primary">2 MIN AGO</span></div>
+                                    <div class="text-xs mono text-gray-500">SNIPE WINDOW: <span class="text-secondary pulse">OPEN</span></div>
+                                </div>
+                            </div>
+                            <div class="text-xs mono text-gray-400">
+                                <div class="flex justify-between py-1 border-b border-gray-800">
+                                    <span>> INITIAL_BUY: 420 SOL</span>
+                                    <span class="text-primary">+3.2x</span>
+                                </div>
+                                <div class="flex justify-between py-1 border-b border-gray-800">
+                                    <span> > DCA_BUY: 69 SOL</span>
+                                    <span class="text-primary">+1.8x</span>
+                                </div>
+                                <div class="flex justify-between py-1">
+                                    <span>> WALLET_AGE: 4H 22M</span>
+                                    <span class="text-secondary">NEW_WHALE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-gray-900 text-xs mono px-2 py-1 rotate-3 border border-gray-700">
+                        LIVE__DATA
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Network Activity -->
+        <section id="network" class="mb-20">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">
+                    <span class="text-primary">SOLANA</span>
+                    <span class="text-white">_WHALE_ACTIVITY</span>
+                </h3>
+                <div class="text-sm mono text-gray-500">LAST 24H: <span class="text-primary">142 WHALES REAPED</span></div>
+            </div>
+            
+            <div class="terminal-bg border border-gray-800 rounded-lg overflow-hidden">
+                <div class="grid grid-cols-12 bg-gray-900 px-4 py-2 text-xs mono text-gray-500 border-b border-gray-800">
+                    <div class="col-span-2">TIME</div>
+                    <div class="col-span-3">TARGET</div>
+                    <div class="col-span-2">TOKEN</div>
+                    <div class="col-span-2">SIZE</div>
+                    <div class="col-span-2">REAPER</div>
+                    <div class="col-span-1">BOUNTY</div>
+                </div>
+                <div class="divide-y divide-gray-800">
+                    <!-- Fake data rows -->
+                    <div class="grid grid-cols-12 px-4 py-3 text-sm hover:bg-gray-900 transition-colors">
+                        <div class="col-span-2 mono text-gray-400">04:22:17</div>
+                        <div class="col-span-3 mono text-primary truncate">H9s3...K7a2</div>
+                        <div class="col-span-2 text-secondary">$WIF</div>
+                        <div class="col-span-2">5,420 SOL</div>
+                        <div class="col-span-2 mono text-accent">sniper_ghost</div>
+                        <div class="col-span-1 text-right mono text-green-500">42.0◎</div>
+                    </div>
+                    <div class="grid grid-cols-12 px-4 py-3 text-sm hover:bg-gray-900 transition-colors">
+                        <div class="col-span-2 mono text-gray-400">03:45:02</div>
+                        <div class="col-span-3 mono text-primary truncate">F5e1...M7f4</div>
+                        <div class="col-span-2 text-secondary">$BONK</div>
+                        <div class="col-span-2">8,250 SOL</div>
+                        <div class="col-span-2 mono text-accent">phantom_9</div>
+                        <div class="col-span-1 text-right mono text-green-500">65.5◎</div>
+                    </div>
+                    <div class="grid grid-cols-12 px-4 py-3 text-sm hover:bg-gray-900 transition-colors">
+                        <div class="col-span-2 mono text-gray-400">02:18:33</div>
+                        <div class="col-span-3 mono text-primary truncate">K2a4...L2d8</div>
+                        <div class="col-span-2 text-secondary">$POPCAT</div>
+                        <div class="col-span-2">3,780 SOL</div>
+                        <div class="col-span-2 mono text-accent">dark_pool</div>
+                        <div class="col-span-1 text-right mono text-green-500">28.2◎</div>
+                    </div>
+                    <div class="grid grid-cols-12 px-4 py-3 text-sm hover:bg-gray-900 transition-colors">
+                        <div class="col-span-2 mono text-gray-400">01:02:47</div>
+                        <div class="col-span-3 mono text-primary truncate">J7b6...N9e3</div>
+                        <div class="col-span-2 text-secondary">$MYRO</div>
+                        <div class="col-span-2">6,950 SOL</div>
+                        <div class="col-span-2 mono text-accent">orbital_0</div>
+                        <div class="col-span-1 text-right mono text-green-500">52.8◎</div>
+                    </div>
+                </div>
+                <div class="bg-gray-900 px-4 py-2 text-xs mono text-gray-500 border-t border-gray-800">
+                    <div class="flex justify-between">
+                        <span>LIVE_ON: SOLANA_MAINNET</span>
+                        <span class="text-primary">SYNCING...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminal Section -->
+        <section id="terminal" class="mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2">
+                    <h3 class="text-2xl font-bold mb-6">
+                        <span class="text-primary">SNIPER</span>
+                        <span class="text-white">_TERMINAL</span>
+                    </h3>
+                    <div class="terminal-bg border border-gray-800 rounded-lg overflow-hidden h-full">
+                        <div class="bg-gray-900 px-4 py-2 flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="text-xs mono text-gray-500">ACTIVE_TARGETS: <span class="text-primary">8</span></div>
+                                <div class="text-xs mono text-gray-500 ml-4">HIGH_BOUNTY: <span class="text-accent">75.5◎</span></div>
+                            </div>
+                            <div class="text-xs mono text-gray-500">LATENCY: <span class="text-green-500">37ms</span></div>
+                        </div>
+                        <div class="p-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div class="hud-element p-4 rounded-lg border border-gray-800 hover:border-primary transition-colors">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div>
+                                            <div class="text-xs mono text-gray-500 mb-1">TARGET_H9s3...K7a2</div>
+                                            <div class="text-lg font-bold text-primary">$WIF</div>
+                                        </div>
+                                        <div class="text-xs mono px-2 py-1 bg-gray-800 rounded text-secondary">JUPITER</div>
+                                    </div>
+                                    <div class="text-sm mb-3">Initial buy: <span class="text-primary">420◎</span></div>
+                                    <div class="flex justify-between text-xs mono">
+                                        <span>BOUNTY: <span class="text-accent">42.0◎</span></span>
+                                        <span>WINDOW: <span class="text-secondary pulse">OPEN</span></span>
+                                    </div>
+                                </div>
+                                <div class="hud-element p-4 rounded-lg border border-gray-800 hover:border-primary transition-colors">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div>
+                                            <div class="text-xs mono text-gray-500 mb-1">TARGET_F5e1...M7f4</div>
+                                            <div class="text-lg font-bold text-primary">$BONK</div>
+                                        </div>
+                                        <div class="text-xs mono px-2 py-1 bg-gray-800 rounded text-secondary">RAYDIUM</div>
+                                    </div>
+                                    <div class="text-sm mb-3">Initial buy: <span class="text-primary">850◎</span></div>
+                                    <div class="flex justify-between text-xs mono">
+                                        <span>BOUNTY: <span class="text-accent">65.5◎</span></span>
+                                        <span>WINDOW: <span class="text-gray-500">CLOSED</span></span>
+                                    </div>
+                                </div>
+                                <div class="hud-element p-4 rounded-lg border border-gray-800 hover:border-primary transition-colors">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div>
+                                            <div class="text-xs mono text-gray-500 mb-1">TARGET_K2a4...L2d8</div>
+                                            <div class="text-lg font-bold text-primary">$POPCAT</div>
+                                        </div>
+                                        <div class="text-xs mono px-2 py-1 bg-gray-800 rounded text-secondary">ORCA</div>
+                                    </div>
+                                    <div class="text-sm mb-3">Initial buy: <span class="text-primary">240◎</span></div>
+                                    <div class="flex justify-between text-xs mono">
+                                        <span>BOUNTY: <span class="text-accent">28.2◎</span></span>
+                                        <span>WINDOW: <span class="text-secondary pulse">OPEN</span></span>
+                                    </div>
+                                </div>
+                                <div class="hud-element p-4 rounded-lg border border-gray-800 hover:border-primary transition-colors">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div>
+                                            <div class="text-xs mono text-gray-500 mb-1">TARGET_J7b6...N9e3</div>
+                                            <div class="text-lg font-bold text-primary">$MYRO</div>
+                                        </div>
+                                        <div class="text-xs mono px-2 py-1 bg-gray-800 rounded text-secondary">RAYDIUM</div>
+                                    </div>
+                                    <div class="text-sm mb-3">Initial buy: <span class="text-primary">690◎</span></div>
+                                    <div class="flex justify-between text-xs mono">
+                                        <span>BOUNTY: <span class="text-accent">52.8◎</span></span>
+                                        <span>WINDOW: <span class="text-secondary pulse">OPEN</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="px-4 py-2 border border-gray-700 text-xs mono text-gray-400 hover:border-primary hover:text-primary transition-colors">
+                                    LOAD_MORE_TARGETS
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">
+                        <span class="text-primary">BOUNTY</span>
+                        <span class="text-white">_LEADERBOARD</span>
+                    </h3>
+                    <div class="terminal-bg border border-gray-800 rounded-lg overflow-hidden h-full">
+                        <div class="bg-gray-900 px-4 py-2 text-xs mono text-gray-500">
+                            SEASON_004: <span class="text-primary">14D 06H LEFT</span>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-xs font-bold mr-3">1</div>
+                                <div class="flex-1">
+                                    <div class="font-bold text-primary">sniper_ghost</div>
+                                    <div class="text-xs mono text-gray-500">42 WHALES REAPED</div>
+                                </div>
+                                <div class="text-accent glow-accent font-bold">1,428◎</div>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-xs font-bold mr-3">2</div>
+                                <div class="flex-1">
+                                    <div class="font-bold text-secondary">phantom_9</div>
+                                    <div class="text-xs mono text-gray-500">38 WHALES REAPED</div>
+                                </div>
+                                <div class="text-accent glow-accent font-bold">1,296◎</div>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-xs font-bold mr-3">3</div>
+                                <div class="flex-1">
+                                    <div class="font-bold text-gray-300">dark_pool</div>
+                                    <div class="text-xs mono text-gray-500">31 WHALES REAPED</div>
+                                </div>
+                                <div class="text-accent glow-accent font-bold">972◎</div>
+                            </div>
+                            <div class="space-y-3 mt-6">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">4. orbital_0</span>
+                                    <span class="text-accent">858◎</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">5. reaper_01</span>
+                                    <span class="text-accent">745◎</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">6. stealth_</span>
+                                    <span class="text-accent">639◎</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">7. ghost_137</span>
+                                    <span class="text-accent">528◎</span>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-gray-800">
+                                <div class="text-xs mono text-gray-500 mb-2">YOUR POSITION: <span class="text-primary">NOT CONNECTED</span></div>
+                                <button class="w-full px-4 py-2 bg-primary bg-opacity-10 border border-primary text-primary text-sm font-bold hover:bg-opacity-20 transition-colors">
+                                    CONNECT_TO_VIEW
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifesto -->
+        <section id="manifesto" class="mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">
+                        <span class="text-primary">THE</span>
+                        <span class="text-white">_REAPER</span>
+                    </h3>
+                    <div class="hud-element p-6 border border-gray-800 rounded-lg h-full">
+                        <p class="text-gray-300 mb-4">
+                            WHALE REAPER is a theatrical GameFi  parodying Solana degen whale sniping culture. Nothing is real. Everything is performance.
+                        </p>
+                        <p class="text-gray-400 text-sm">
+                            This is not financial advice. This is not a real trading platform. This is an elaborate parody of Solana's most absurd behaviors - wrapped in a tactical interface that makes you feel like a financial assassin.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">
+                        <span class="text-primary">THE</span>
+                        <span class="text-white">_GAME</span>
+                    </h3>
+                    <div class="hud-element p-6 border border-gray-800 rounded-lg h-full">
+                        <p class="text-gray-300 mb-4">
+                            Players compete to "snipe" mock whale positions in Solana memecoins. Track fake whales, analyze fake patterns, execute fake kills for fake bounties.
+                        </p>
+                        <p class="text-gray-400 text-sm">
+                            All data is simulated. All transactions are pretend. The only real thing is the competition and the style with which you execute your fictional financial hits.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">
+                        <span class="text-primary">THE</span>
+                        <span class="text-white">_CODE</span>
+                    </h3>
+                    <div class="hud-element p-6 border border-gray-800 rounded-lg h-full">
+                        <p class="text-gray-300 mb-4">
+                            WHALE REAPER runs on pure satire and tactical UI aesthetics. No real blockchain. No real trading. Just elite vibes and degen parody.
+                        </p>
+                        <p class="text-gray-400 text-sm">
+                            Coming soon: Optional Solana Web3 integration for tracking your pretend kills on-chain. Because even parody deserves immutability.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="mb-20 text-center">
+            <div class="terminal-bg border border-gray-800 rounded-lg py-12 px-6">
+                <div class="text-xs mono text-primary mb-2">READY_TO_ENGAGE</div>
+                <h3 class="text-3xl md:text-4xl font-bold mb-6">
+                    <span class="text-white">BECOME A</span>
+                    <span class="solana-gradient">SOLANA ASSASSIN</span>
+                </h3>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-8">
+                    Join the elite network of pretend whale snipers on Solana. Track fictional positions. Execute theatrical kills. Climb the bounty leaderboard.
+                </p>
+                <button id="finalCta" class="px-12 py-4 bg-primary text-black font-bold hover:bg-secondary hover:text-white transition-all transform hover:scale-105 mb-4">
+                    START REAPING
+                </button>
+                <div class="text-xs mono text-gray-600">
+                    NO_REAL_FUNDS_NEEDED | PURE_SATIRE | MAXIMUM_VIBES
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="w-3 h-3 rounded-full bg-primary mr-2 glow"></div>
+                    <div class="text-lg font-bold">
+                        <span class="text-primary">WHALE</span>
+                        <span class="text-white">REAPER</span>
+                        <span class="text-xs mono ml-2 text-secondary">SOLANA</span>
+                    </div>
+                </div>
+                <div class="text-sm text-gray-500 mono">
+                    <span class="text-gray-600">© 2024 WHALE REAPER NETWORK</span>
+                    <span class="mx-2">|</span>
+                    <span>ALL_SIMULATED</span>
+                    <span class="mx-2">|</span>
+                    <span>NO_REAL_WHALES_HARMED</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sniper Modal -->
+    <div id="sniperModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden">
+        <div class="relative w-full max-w-2xl">
+            <div class="terminal-bg border border-primary rounded-lg overflow-hidden">
+                <div class="bg-gray-900 px-4 py-2 flex justify-between items-center">
+                    <div class="text-sm mono text-primary">SOLANA_REAPER_TERMINAL</div>
+                    <button id="closeModal" class="text-gray-500 hover:text-white">&times;</button>
+                </div>
+                <div class="p-6 text-center">
+                    <div class="text-5xl text-primary mb-6">🔫</div>
+                    <h4 class="text-2xl font-bold text-white mb-4">TARGET ACQUIRED</h4>
+                    <p class="text-gray-400 mb-6">
+                        You are about to enter the WHALE REAPER  network.
+                        <br>
+                        Remember: This is all theatrical. No real sniping occurs.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="hud-element p-3 rounded border border-gray-800">
+                            <div class="text-xs mono text-gray-500">_ID</div>
+                            <div class="text-sm mono text-primary">#WR-SOL-0042</div>
+                        </div>
+                        <div class="hud-element p-3 rounded border border-gray-800">
+                            <div class="text-xs mono text-gray-500">NETWORK</div>
+                            <div class="text-sm mono text-secondary">SOLANA MAINNET</div>
+                        </div>
+                    </div>
+                    <button class="w-full py-3 bg-primary text-black font-bold hover:bg-secondary hover:text-white transition-colors mb-3">
+                        PROCEED TO 
+                    </button>
+                    <button id="cancelModal" class="w-full py-3 border border-gray-700 text-gray-300 hover:border-primary hover:text-primary transition-colors">
+                        CANCEL
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wallet Connection Modal -->
+    <div id="walletModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden">
+        <div class="relative w-full max-w-md">
+            <div class="terminal-bg border border-primary rounded-lg overflow-hidden">
+                <div class="bg-gray-900 px-4 py-2 flex justify-between items-center">
+                    <div class="text-sm mono text-primary">SELECT_WALLET_PROVIDER</div>
+                    <button id="closeWalletModal" class="text-gray-500 hover:text-white">&times;</button>
+                </div>
+                <div class="p-6">
+                    <div class="space-y-3">
+                        <button id="phantomBtn" class="w-full flex items-center justify-between p-4 border border-gray-800 hover:border-primary transition-colors">
+                            <span>Phantom</span>
+                            <img src="https://phantom.app/favicon.ico" alt="Phantom" class="w-6 h-6">
+                        </button>
+                        <button id="solflareBtn" class="w-full flex items-center justify-between p-4 border border-gray-800 hover:border-primary transition-colors">
+                            <span>Solflare</span>
+                            <img src="https://solflare.com/favicon.ico" alt="Solflare" class="w-6 h-6">
+                        </button>
+                        <button id="backpackBtn" class="w-full flex items-center justify-between p-4 border border-gray-800 hover:border-primary transition-colors">
+                            <span>Backpack</span>
+                            <img src="https://backpack.app/favicon.ico" alt="Backpack" class="w-6 h-6">
+                        </button>
+                    </div>
+                    <div class="mt-6 text-xs mono text-gray-500">
+                        By connecting a wallet, you agree to our Terms of Service and Privacy Policy
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple modal interactions
+        const snipeBtn = document.getElementById('snipeBtn');
+        const finalCta = document.getElementById('finalCta');
+        const sniperModal = document.getElementById('sniperModal');
+        const closeModal = document.getElementById('closeModal');
+        const cancelModal = document.getElementById('cancelModal');
+
+        [snipeBtn, finalCta].forEach(btn => {
+            btn.addEventListener('click', () => {
+                sniperModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        [closeModal, cancelModal].forEach(btn => {
+            btn.addEventListener('click', () => {
+                sniperModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Wallet connection logic
+        const connectWalletBtn = document.getElementById('connectWalletBtn');
+        const walletModal = document.getElementById('walletModal');
+        const closeWalletModal = document.getElementById('closeWalletModal');
+
+        connectWalletBtn.addEventListener('click', () => {
+            walletModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeWalletModal.addEventListener('click', () => {
+            walletModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+
+        // Mock wallet connection functions
+        async function connectWallet(walletName) {
+            connectWalletBtn.textContent = 'CONNECTING...';
+            walletModal.classList.add('hidden');
+            document.body.style.overflow = '';
+            
+            // Simulate connection delay
+            setTimeout(() => {
+                connectWalletBtn.textContent = `${walletName.toUpperCase()} (SOL)`;
+                connectWalletBtn.classList.remove('border-primary', 'text-primary');
+                connectWalletBtn.classList.add('border-secondary', 'text-secondary');
+                
+                // Update leaderboard section
+                const leaderboardStatus = document.querySelector('#terminal .mono.text-gray-500');
+                if (leaderboardStatus) {
+                    leaderboardStatus.innerHTML = 'YOUR POSITION: <span class="text-primary">#42</span>';
+                }
+            }, 1500);
+        }
+
+        document.getElementById('phantomBtn').addEventListener('click', () => connectWallet('phantom'));
+        document.getElementById('solflareBtn').addEventListener('click', () => connectWallet('solflare'));
+        document.getElementById('backpackBtn').addEventListener('click', () => connectWallet('backpack'));
+
+        // Terminal-like typing effect for status messages
+        const statusMessages = [
+            "SYNCING_SOLANA_DATA",
+            "ANALYZING_WHALE_TXS",
+            "TRACKING_WHALE_H9s3...K7a2",
+            "MONITORING_JUPITER_DEX"
+        ];
+        let currentStatus = 0;
+        const statusElement = document.createElement('div');
+        statusElement.className = 'text-xs mono text-gray-500 absolute bottom-4 left-4';
+        document.body.appendChild(statusElement);
+
+        function rotateStatus() {
+            statusElement.textContent = `> ${statusMessages[currentStatus]}`;
+            statusElement.classList.add('typewriter');
+            currentStatus = (currentStatus + 1) % statusMessages.length;
+            
+            setTimeout(() => {
+                statusElement.classList.remove('typewriter');
+                setTimeout(rotateStatus, 2000);
+            }, 3000);
+        }
+
+        setTimeout(rotateStatus, 1000);
+    </script>
+</body>
+</html>
